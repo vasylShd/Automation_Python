@@ -17,6 +17,14 @@ print(name)
 name = name.strip()
 print(name)
 
+# task 2
+from math import pi
+
+r = int(input('Enter circle radius: '))
+l = 2 * pi * r
+s = pi * r**2
+print('circle length:', '{:.1f}'.format(l))
+print('circle area:', '{:.1f}'.format(s))
 
 
 
