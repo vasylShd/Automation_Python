@@ -5,6 +5,8 @@ last_name = input('Enter your lastname: ')
 full_name = name + ' ' + last_name
 print('Personal data: ', full_name)
 
+print(full_name.lower())
+print(full_name.upper())
 full_name = name.capitalize() + ' ' + last_name.capitalize()
 print(full_name)
 
@@ -18,7 +20,7 @@ print(name)
 # task 2
 from math import pi
 
-circle_rad = int(input('Enter circle radius: '))
+circle_rad = float(input('Enter circle radius: '))
 circle_len = 2 * pi * circle_rad
 circle_ar = pi * circle_rad**2
 print('circle length:', '{:.1f}'.format(circle_len))
