@@ -18,11 +18,11 @@ print(name)
 # task 2
 from math import pi
 
-r = int(input('Enter circle radius: '))
-c = 2 * pi * r
-s = pi * r**2
-print('circle length:', '{:.1f}'.format(c))
-print('circle area:', '{:.1f}'.format(s))
+circle_rad = int(input('Enter circle radius: '))
+circle_len = 2 * pi * circle_rad
+circle_ar = pi * circle_rad**2
+print('circle length:', '{:.1f}'.format(circle_len))
+print('circle area:', '{:.1f}'.format(circle_ar))
 
 # task 3
 usd_rate = 36.56
