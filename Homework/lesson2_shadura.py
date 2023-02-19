@@ -18,7 +18,7 @@ print(name)
 # task 2
 from math import pi
 
-radius = int(input('Enter circle radius: '))
+r = int(input('Enter circle radius: '))
 c = 2 * pi * r
 s = pi * r**2
 print('circle length:', '{:.1f}'.format(c))
