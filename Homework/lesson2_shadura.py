@@ -1,8 +1,6 @@
 # task 1
 name = input('Enter your name: ')
 last_name = input('Enter your lastname: ')
-# name = 'vasyl'
-# last_name = 'shadura'
 
 full_name = name + ' ' + last_name
 print('Personal data: ', full_name)
@@ -26,6 +24,10 @@ s = pi * r**2
 print('circle length:', '{:.1f}'.format(l))
 print('circle area:', '{:.1f}'.format(s))
 
-
-
+# task 3
+usd_rate = 36.56
+grn_amount = int(input('Enter grn amount: '))
+grn_to_usd = grn_amount / usd_rate
+grn_to_usd = round(grn_to_usd, 2)
+print('Dollars amount at cuttent rate is: {}'.format(grn_to_usd))
 
