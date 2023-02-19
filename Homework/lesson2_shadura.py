@@ -18,10 +18,10 @@ print(name)
 # task 2
 from math import pi
 
-r = int(input('Enter circle radius: '))
-l = 2 * pi * r
+radius = int(input('Enter circle radius: '))
+Lgth = 2 * pi * r
 s = pi * r**2
-print('circle length:', '{:.1f}'.format(l))
+print('circle length:', '{:.1f}'.format(Lgth))
 print('circle area:', '{:.1f}'.format(s))
 
 # task 3
