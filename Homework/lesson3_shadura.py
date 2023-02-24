@@ -1,4 +1,4 @@
-# # task 1
+# task 1
 import random
 
 min = random.randint(0, 59)
@@ -11,6 +11,7 @@ elif min >= 30 and min < 45:
     print('{} is in III-quarter'.format(min))
 else:
     print('{} is in IV-quarter'.format(min))
+print()
 
 
 # task 2
@@ -30,6 +31,7 @@ if birth_month.isdigit():
         print('Incorrect data, please enter again!')
 else:
     print('Incorrect data, please enter again!')
+print()
 
 
 # task 3
@@ -43,3 +45,24 @@ if sum_dgts % 3 == 0 and last_dgt % 2 == 0:
     print('Число {} ділиться на 6'.format(num))
 else:
     print('Число {} не ділиться на 6'.format(num))
+print()
+
+
+# task 4
+x = float(input('Enter x: '))
+y = float(input('Enter y: '))
+
+if x > 0 and y > 0:
+    print('I coordinate quarter')
+elif x < 0 and y > 0:
+    print('II coordinate quarter')
+elif x < 0 and y < 0:
+    print('III coordinate quarter')
+elif x > 0 and y < 0:
+    print('IV coordinate quarter')
+elif x == 0 and y != 0:
+    print('point is on axis Y')
+elif x != 0 and y == 0:
+    print('point is on axis X')
+else:
+    print('point is on coordinate origin')
