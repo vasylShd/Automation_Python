@@ -14,7 +14,6 @@ else:
 
 
 # task 2
-
 birth_month = input('Enter your birth month number: ')
 
 if birth_month.isdigit():
@@ -33,6 +32,14 @@ else:
     print('Incorrect data, please enter again!')
 
 
-
-
-
+# task 3
+num = random.randint(1, 1000)
+num = str(num)
+sum_dgts = 0
+for i in num:
+    sum_dgts += int(i)
+last_dgt = int(num[-1])
+if sum_dgts % 3 == 0 and last_dgt % 2 == 0:
+    print('Число {} ділиться на 6'.format(num))
+else:
+    print('Число {} не ділиться на 6'.format(num))
