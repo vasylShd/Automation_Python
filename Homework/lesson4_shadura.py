@@ -19,7 +19,7 @@ def print_note(list):                                       # function for outpu
         for i in list:
             print(i)
     else:
-        print('Note list is empty! Please add any notes.')
+        print('Note list is empty! Please add any note.')
 
 while True:
     key_word = input('Enter key word: ')
