@@ -28,7 +28,7 @@ while True:
         if note == '':                                  # Output warning if the note is empty
             print('¯\_(ツ)_/¯ Note cannot be empty! Try again.')
         else:
-            note_list.append(note)
+            note_list.append(note)                      # adding note
             list_not_empty = True
             note_count += 1
     elif key_word == 'earliest':                        # output notes from oldest to newest
@@ -39,8 +39,7 @@ while True:
         print_note(revers_note_list)
     elif key_word == 'longest':                         # output notes from longest to shortest
         longest_note_list = note_list.copy()
-        longest_note_list.sort(key=len)
-        longest_note_list.reverse()
+        longest_note_list.sort(key=len, reverse=True)
         print_note(longest_note_list)
     elif key_word == 'shortest':                         # output notes from shortest to longest
         shortest_note_list = note_list.copy()
