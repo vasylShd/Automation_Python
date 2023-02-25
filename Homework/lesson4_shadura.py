@@ -47,4 +47,4 @@ while True:
         if key_word == 'exit':                              # exit from the program
             break
         else:
-            print('Incorrect kay! Don`t warry. Try again')  # Output warning about invalid input (key-words)
+            print('Incorrect key! Don`t warry. Try again')  # Output warning about invalid input (key-words)
