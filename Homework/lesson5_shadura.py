@@ -47,11 +47,17 @@ for i in list_inter:
 print('\n\ntask 5')
 text_1 = 'one two three one four five seven ten seven one'
 text_1 = text_1.split(' ')
-set_1 = set(text_1)
-set_2 = set()
 
-for i in set_1:
-    set_2.add((i, text_1.count(i)))
+dict_1 = dict.fromkeys(text_1)
+for key in dict_1.keys():
+    dict_1[key] = text_1.count(key)
 
-for i in list(set_2):
-    print(i, end=' ')
+for key, val in dict_1.items():
+    print('({0}, {1})'.format(key, val), end=' ')
+
+# set_1 = set(text_1)
+# set_2 = set()
+# for i in set_1:
+#     set_2.add((i, text_1.count(i)))
+# for i in list(set_2):
+#     print(i, end=' ')
