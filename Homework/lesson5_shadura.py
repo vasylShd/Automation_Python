@@ -29,9 +29,7 @@ for key, value in students_score.items():
 print('\ntask 3')
 number_list = [4, 6, 7, 6, 6, 3, 4, 9, 2, 6, 9]
 number_set = set(number_list)
-
-for i in number_set:
-    print(i, '--', number_list.count(i))
+print(len(number_set))
 
 # task 4
 print('\ntask 4')
@@ -54,10 +52,3 @@ for key in dict_1.keys():
 
 for key, val in dict_1.items():
     print('({0}, {1})'.format(key, val), end=' ')
-
-# set_1 = set(text_1)
-# set_2 = set()
-# for i in set_1:
-#     set_2.add((i, text_1.count(i)))
-# for i in list(set_2):
-#     print(i, end=' ')
