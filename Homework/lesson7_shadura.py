@@ -1,6 +1,4 @@
 # task 1
-import math
-
 print('task 1\n')
 
 side_list = ['' for x in range(1, 5)]
