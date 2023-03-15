@@ -20,7 +20,7 @@ def check_rectangle():
     a, b, c, d = int(side_list[0]), int(side_list[1]), int(side_list[2]), int(side_list[3])
     if len(side_set) == 1:
         print('This is Square')
-    elif a ** 2 + b ** 2 == c ** 2 + d ** 2:
+    elif a**2 + b**2 == c**2 + d**2:
         print('This is Rectangle')
         print('Area of the rectangle:', rectangle_area(a, b))
     else:
