@@ -1,30 +1,33 @@
 # task 1
+import math
+
 print('task 1\n')
 
 side_list = ['' for x in range(1, 5)]
+
 
 def enter_side(sides):
     '''The function is for entering sides of a figure'''
     for i in range(len(sides)):
         sides[i] = float(input(f'Enter side {i + 1}: '))
 
-def rectangle_area(two_sides):
+
+def rectangle_area(side_1, side_2):
     '''This function calculates the rectangle area'''
-    list_two_sides = list(two_sides)
-    return list_two_sides[0] * list_two_sides[1]
+    return side_1 * side_2
+
 
 def check_rectangle():
     '''This function checks if the figure is square, rectangle or other quadrilateral'''
+    a, b, c, d = int(side_list[0]), int(side_list[1]), int(side_list[2]), int(side_list[3])
     if len(side_set) == 1:
         print('This is Square')
-    elif len(side_set) == 2:
-        if side_list.count(list(side_set)[0]) != 2:
-            print('This is not rectangle! Enter correct data')
-        else:
-            print('This is Rectangle')
-            print('Area of the rectangle:', rectangle_area(side_set))
+    elif a ** 2 + b ** 2 == c ** 2 + d ** 2:
+        print('This is Rectangle')
+        print('Area of the rectangle:', rectangle_area(a, b))
     else:
         print('This is not rectangle. Enter correct data')
+
 
 while True:
     enter = input('Press "enter" or enter "stop": ')
@@ -42,6 +45,7 @@ from string import ascii_lowercase
 names_list = ['you', 'press', 'services', 'loretta', 'berezka', 'katalina', 'bilka']
 domains_list = ['net', 'com', 'ua', 'us', 'tv', 'uk', 'hk', 'cy']
 
+
 def create_email(names, domains):
     while True:
         enter = input('Press "enter" or enter "stop": ')
@@ -53,8 +57,8 @@ def create_email(names, domains):
         rand_str = ''.join(random.choice(ascii_lowercase) for i in range(random.randint(5, 7)))
         print(f'{name}.{rand_number}@{rand_str}.{domain}')
 
-create_email(names_list, domains_list)
 
+create_email(names_list, domains_list)
 
 # additional tasks
 from functools import reduce
@@ -67,13 +71,11 @@ list2 = [4, 6, 8, 3, 5, 6, 9, 1]
 list_3 = lambda l1, l2: list(set(l1) & set(l2))
 print(list_3(list1, list2))
 
-
 print('\ntask 3.2\nНапишіть програму на Python, щоб перевірити, чи є заданий рядок числом, за допомогою лямбда\n')
 
 number = input('Enter number: ')
 check_number = lambda number: print('This is number') if number.isdigit() else print('This isn`t number')
 check_number(number)
-
 
 print('\ntask 3.3\nНапишіть програму на Python, щоб знайти список із максимальною та мінімальною довжиною за '
       'допомогою лямбда.\n')
@@ -89,7 +91,6 @@ long_list = reduce(lambda x, y: x if (len(x) > len(y)) else y, lists)
 short_list = reduce(lambda x, y: x if (len(x) < len(y)) else y, lists)
 print('Longest lists- ', long_list)
 print('Shortest list- ', short_list)
-
 
 print('\ntask 3.4\nНапишіть програму на Python для обчислення добутку заданого списку чисел за допомогою лямбда\n')
 
