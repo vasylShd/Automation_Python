@@ -1,0 +1,1 @@
+from .simple_math import difference as diff
