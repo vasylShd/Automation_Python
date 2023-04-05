@@ -51,4 +51,4 @@ birthday = input(f'Enter date in format "{form_data}": ')
 birthday = datetime.datetime.strptime(birthday, form_data)
 
 print(f'Your age is {int(age(birthday) // 31536000)} years')
-print(f'Or - {age(birthday)} sec (timestamp)')
+print(f'Or, Your age is {age(birthday)} sec (timestamp)')
