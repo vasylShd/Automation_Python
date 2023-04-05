@@ -1,5 +1,4 @@
 import datetime
-import time
 
 # task 2
 print('task 2')
@@ -23,7 +22,6 @@ finally:
 # task 3
 print('\ntask3')
 
-
 def diff_date(date_in, days, plus):
     '''Function that adds or subtracts a certain number of days from a given date'''
     if plus == '+':
@@ -39,3 +37,18 @@ plus_minus = input('Enter date shift direction ("+" or "-"): ')
 dat = datetime.datetime.strptime(dat, form_data)
 print(diff_date(dat, days, plus_minus).strftime('%Y.%m.%d %H:%M'))
 
+
+# task 4
+print('task 4')
+
+def age(first_day):
+    first_day_stamp = first_day.timestamp()
+    now = datetime.datetime.now().timestamp()
+    return (now - first_day_stamp)
+
+form_data = '%Y.%m.%d'
+birthday = input(f'Enter date in format "{form_data}": ')
+birthday = datetime.datetime.strptime(birthday, form_data)
+
+print(f'Your age is {int(age(birthday) // 31536000)} years')
+print(f'Or - {age(birthday)} sec (timestamp)')
