@@ -48,7 +48,7 @@ class Post:
 
     @classmethod
     def total_departs(cls):
-        print(f'Total departs: {cls.DEPART_COUNT}')
+        return cls.DEPART_COUNT
 
 
 nova_poshta_7 = Post(7, 'Kyiv, Oleny Teligy str, 36', 'till 30 kg',
@@ -60,4 +60,4 @@ nova_poshta_14 = Post(14, 'Kyiv, Peremogy str, 15', 'till 100 kg',
 print(nova_poshta_7.close_time)
 print(nova_poshta_14)
 
-Post.total_departs()
+print(f'Total opened departs: {Post.total_departs()}')
