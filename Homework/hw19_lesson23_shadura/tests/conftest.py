@@ -20,6 +20,7 @@ def main_driver():
         driver.close()
         driver.quit()
 
+
 @pytest.fixture
 def main_dashboard(main_driver):
     yield MainDashboard(main_driver)

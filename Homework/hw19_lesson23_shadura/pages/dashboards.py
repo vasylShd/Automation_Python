@@ -8,6 +8,7 @@ class MainDashboard(BasePage):
         super().__init__(driver)
         self.__input_search_field_locator = '// *[ @ id = "search_with-hints"]'
 
+
     def garage_clearing(self):
         garage = '//div[@class="garage-topline-car"]/i[@class="garage-topline-car__icon"]'
         self._wait_until_element_appears((By.XPATH, garage)).click()
