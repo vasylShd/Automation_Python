@@ -3,12 +3,19 @@ from selenium.webdriver.support.select import By
 from .base_page import BasePage
 from ..core.locator import Locator
 from ..locator.dashboard_locators import DashBoardLocatorColection
+from ..pages.subcategories_maintenance_parts import SubCategoryPickPage
 
 
 class PrimeDashboard(BasePage):
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
         self.__main_car_object = DashBoardLocatorColection()
+
+
+    def choice_category(self, name):
+        self.__main_car_object.select_category = name
+        self._click(Locator(By.XPATH, self.__main_car_object.select_category))
+        return SubCategoryPickPage(self._driver)
 
 
     def garage_clearing(self):

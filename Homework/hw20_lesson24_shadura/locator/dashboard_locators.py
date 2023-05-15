@@ -1,23 +1,37 @@
-from selenium.webdriver.support.select import By
 
 class DashBoardLocatorColection():
     def __init__(self):
-        self.__input_search_field_locator = (By.XPATH, '// *[ @ id = "search_with-hints"]')
-        self.__garage = '//div[@class="garage-topline-car"]/i[@class="garage-topline-car__icon"]'
-        self.__garage_clear = '//div[@class="garage-box-item"]/a[@class="garage-box-car__delete"]'
-        self.__car_parameters = {"brand":None, "model":None, "manufacture_year":None, "body":None, "engine":None, "modification":None}
+        self.__select_category = None
+        self.__select_subcategory = None
+        self.__car_parameters = None
         self.__my_location = None
         self.__search_element = None
+        self.__pagination = None
+        self.__manufacturers = None
+        self.__garage = '//div[@class="garage-topline-car"]/i[@class="garage-topline-car__icon"]'
+        self.__garage_clear = '//div[@class="garage-box-item"]/a[@class="garage-box-car__delete"]'
         self.__price_min_field = '//div[@class="filter__list"]/div/input[@class="from"]'
         self.__price_max_field = '//div[@class="filter__list"]/div/input[@class="to"]'
         self.__button_ok = '//div[@class="filter__list"]/div/input[@class="ok"]'
-        self.__pagination = None
-        self.__manufacturers = None
 
 
     @property
-    def input_search_field_locator(self):
-        return self.__input_search_field_locator
+    def select_category(self):
+        return f'//div[@class="menu__box complite"]//ul[@class="menu-list"]//a[contains(text(), "{self.__select_category}")]'
+
+    @select_category.setter
+    def select_category(self, new_category):
+        self.__select_category = new_category
+
+
+    @property
+    def select_subcategory(self):
+        return f'//div[@class="rubric"]//a[contains(text(), "{self.__select_subcategory}")]'
+
+    @select_subcategory.setter
+    def select_subcategory(self, new_subcategory):
+        self.__select_subcategory = new_subcategory
+
 
     @property
     def garage_locators(self):
@@ -26,12 +40,18 @@ class DashBoardLocatorColection():
 
     @property
     def car_parameters(self):
-        car_brand = f'//div[@class="fva__table fva__table_visible" and @data-type="marka"]//div[contains(text(), "{self.__car_parameters["brand"]}")]'
-        car_model = f'//div[@class="fva__table fva__table_visible" and @data-type="model"]//div[contains(text(), "{self.__car_parameters["model"]}")]'
-        car_manufacture_year = f'//div[@class="fva__table fva__table_visible"]//div[contains(text(), "{self.__car_parameters["manufacture_year"]}")]'
-        car_body = f'//div[@class="fva__table fva__table_visible" and @data-type="body"]//div[contains(text(), "{self.__car_parameters["body"]}")]'
-        engine_type = f'//div[@class="fva__table fva__table_visible" and @data-type="engine"]//div[contains(text(), "{self.__car_parameters["engine"]}")]'
-        car_modification = f'//div[@class="fva__table fva__table_visible" and @data-type="modification"]//div[contains(text(), "{self.__car_parameters["modification"]}")]'
+        car_brand = f'//div[@class="fva__table fva__table_visible" and @data-type="marka"]//div[contains(text(), ' \
+                    f'"{self.__car_parameters["brand"]}")]'
+        car_model = f'//div[@class="fva__table fva__table_visible" and @data-type="model"]//div[contains(text(), ' \
+                    f'"{self.__car_parameters["model"]}")]'
+        car_manufacture_year = f'//div[@class="fva__table fva__table_visible"]//div[contains(text(), ' \
+                               f'"{self.__car_parameters["manufacture_year"]}")]'
+        car_body = f'//div[@class="fva__table fva__table_visible" and @data-type="body"]//div[contains(text(), ' \
+                   f'"{self.__car_parameters["body"]}")]'
+        engine_type = f'//div[@class="fva__table fva__table_visible" and @data-type="engine"]//div[contains(text(), ' \
+                      f'"{self.__car_parameters["engine"]}")]'
+        car_modification = f'//div[@class="fva__table fva__table_visible" and @data-type="modification"]//div[contains(text(), ' \
+                           f'"{self.__car_parameters["modification"]}")]'
         list_car_parameters = [car_brand, car_model, car_manufacture_year, car_body, engine_type, car_modification]
         return list_car_parameters
 
