@@ -11,6 +11,9 @@ class PrimeDashboard(BasePage):
         super().__init__(driver)
         self.__main_car_object = DashBoardLocatorColection()
 
+    def move_to_main_page(self):
+        self._click(Locator(By.XPATH, self.__main_car_object.main_page))
+
 
     def choice_category(self, name):
         self.__main_car_object.select_category = name
@@ -19,8 +22,11 @@ class PrimeDashboard(BasePage):
 
 
     def garage_clearing(self):
-        self._click(Locator(By.XPATH, self.__main_car_object.garage_locators[0]))
-        self._click(Locator(By.XPATH, self.__main_car_object.garage_locators[1]))
+        try:
+            self._click(Locator(By.XPATH, self.__main_car_object.garage_locators[0]))
+            self._click(Locator(By.XPATH, self.__main_car_object.garage_locators[1]))
+        except:
+            pass
 
     def car_select(self, **kwargs):
         self.__main_car_object.car_parameters = kwargs

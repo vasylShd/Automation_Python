@@ -8,12 +8,16 @@ class DashBoardLocatorColection():
         self.__search_element = None
         self.__pagination = None
         self.__manufacturers = None
+        self.__main_page = '//header[@class="header"]//a[@class="header__logo"]'
         self.__garage = '//div[@class="garage-topline-car"]/i[@class="garage-topline-car__icon"]'
         self.__garage_clear = '//div[@class="garage-box-item"]/a[@class="garage-box-car__delete"]'
         self.__price_min_field = '//div[@class="filter__list"]/div/input[@class="from"]'
         self.__price_max_field = '//div[@class="filter__list"]/div/input[@class="to"]'
         self.__button_ok = '//div[@class="filter__list"]/div/input[@class="ok"]'
 
+    @property
+    def main_page(self):
+        return self.__main_page
 
     @property
     def select_category(self):
