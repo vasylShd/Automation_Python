@@ -2,9 +2,9 @@ user ='postgres'
 password ='postgres'
 host ='127.0.0.1'
 port ='5432'
-database='postgres_and_api'
+database='postgres_api'
 
-table_name = 'devices'
+table_name = 'devices_1'
 columns_create = [
     "Id SERIAL PRIMARY KEY",
     "id_from_api varchar(150) NOT NULL",

@@ -26,7 +26,8 @@ class APItoSQLAdapter:
             connection_1 = psycopg2.connect(host=self.host, port=self.port, user=self.user, password=self.password)
             with connection_1.cursor() as cursor:
                 connection_1.autocommit = True
-                cursor.execute(f"SELECT datname FROM pg_catalog.pg_database WHERE lower(datname) = lower('{self.database}')")
+                cursor.execute(
+                    f"SELECT datname FROM pg_catalog.pg_database WHERE lower(datname) = lower('{self.database}')")
                 result = cursor.fetchone()
                 if not result:
                     cursor.execute(f"CREATE DATABASE {self.database}")
@@ -45,7 +46,8 @@ class APItoSQLAdapter:
             connection_2 = psycopg2.connect(host=self.host, port=self.port, user=self.user,
                                             password=self.password, database=self.database)
             with connection_2.cursor() as cursor:
-                cursor.execute(f"SELECT table_name FROM information_schema.tables WHERE table_name = '{self.table_name}'")
+                cursor.execute(
+                    f"SELECT table_name FROM information_schema.tables WHERE table_name = '{self.table_name}'")
                 result = cursor.fetchone()
                 if not result:
                     cursor.execute(f"CREATE TABLE {self.table_name} ({self.column_definitions_create})")
@@ -76,18 +78,19 @@ class APItoSQLAdapter:
             connection_3 = psycopg2.connect(host=self.host, port=self.port, user=self.user,
                                             password=self.password, database=self.database)
             with connection_3.cursor() as cursor:
-                val_1, val_2, val_3 = self.object.json().get('id'), self.object.json().get('name'),\
+                val_1, val_2, val_3 = self.object.json().get('id'), self.object.json().get('name'), \
                     json.dumps(self.object.json().get('data'))
                 cursor.execute(f"INSERT INTO {self.table_name} ({self.column_definitions_insert}) "
                                f"VALUES ('{val_1}', '{val_2}', '{val_3}')")
                 connection_3.commit()
-                print(f"[INFO FROM SQL] Object '{self.object_id}' was successfully inserted into table '{self.table_name}'.")
+                print(
+                    f"[INFO FROM SQL] Object '{self.object_id}' was successfully inserted into table '{self.table_name}'.")
         finally:
             if connection_3:
                 connection_3.close()
                 print("[INFO FROM SQL] PostgreSQL 'insert_object_connection' is closed.\n")
 
-    def select_object_from_sql(self):
+    def select_object_from_database(self):
         try:
             connection_4 = psycopg2.connect(host=self.host, port=self.port, user=self.user,
                                             password=self.password, database=self.database)
@@ -95,7 +98,8 @@ class APItoSQLAdapter:
                 cursor.execute(f"SELECT * FROM {self.table_name} WHERE id_from_api LIKE '{self.object_id}'")
                 result = cursor.fetchone()
                 print(f"Selected object from '{self.table_name}': ", result)
-                print(f"[INFO FROM SQL] Object '{self.object_id}' was successfully selected from table '{self.table_name}'.")
+                print(
+                    f"[INFO FROM SQL] Object '{self.object_id}' was successfully selected from table '{self.table_name}'.")
         finally:
             if connection_4:
                 connection_4.close()
@@ -105,7 +109,7 @@ class APItoSQLAdapter:
         put_request = requests.put(self.object_url + '/' + self.object_id, data=data, headers=self.object_headers)
         print(f"[INFO FROM API] Object '{self.object_id}' was successfully updated.")
 
-    def update_object_in_sql(self):
+    def update_object_in_database(self):
         updated_object_from_api = self.get_object_from_api()
         try:
             connection_5 = psycopg2.connect(host=self.host, port=self.port, user=self.user,
@@ -125,21 +129,21 @@ class APItoSQLAdapter:
                 connection_5.close()
                 print("[INFO FROM SQL] PostgreSQL 'update_object_connection' is closed.\n")
 
-
     def delete_object_from_api(self):
         del_request = requests.delete(self.object_url + '/' + self.object_id)
         check_deletef_object = requests.get(self.object_url + '/' + self.object_id, self.object_headers)
         print(check_deletef_object.json())
         print(f"[INFO FROM API] Object '{self.object_id}' was successfully deleted from {self.object_url}.\n")
 
-    def delete_object_from_sql(self):
+    def delete_object_from_database(self):
         try:
             connection_6 = psycopg2.connect(host=self.host, port=self.port, user=self.user,
                                             password=self.password, database=self.database)
             with connection_6.cursor() as cursor:
-                cursor.execute(f"DELETE FROM {self.table_name} WHERE {self.table_name}.id_from_api = '{self.object_id}'")
+                cursor.execute(
+                    f"DELETE FROM {self.table_name} WHERE {self.table_name}.id_from_api = '{self.object_id}'")
                 connection_6.commit()
-                self.select_object_from_sql()
+                self.select_object_from_database()
                 print(f"[INFO FROM SQL] Object '{self.object_id}' was successfully deleted.")
         finally:
             if connection_6:
